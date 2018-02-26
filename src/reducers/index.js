@@ -1,5 +1,5 @@
 import {combineReducers} from 'redux';
-import {SET_MARKETS} from '../actions';
+import {SET_MARKETS, FAVORITE_MARKET} from '../actions';
 
 function markets(state = [], action) {
     switch(action.type) {
@@ -10,6 +10,16 @@ function markets(state = [], action) {
     }
 }
 
-const rootReducer = combineReducers({markets});
+function favoriteMarkets(state = [], action) {
+    switch(action.type) {
+        case FAVORITE_MARKET:
+            state = [...state, action.market]
+            return state;
+        default:
+            return state;
+    }
+}
+
+const rootReducer = combineReducers({markets, favoriteMarkets});
 
 export default rootReducer;

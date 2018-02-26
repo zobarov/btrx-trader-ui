@@ -3,7 +3,6 @@ import {Form, FormGroup, FormControl, ControlLabel, Button} from 'react-bootstra
 import { setMarkets } from '../actions';
 import {connect} from 'react-redux';
 
-
 class SearchMarkets extends Component {
     constructor() {
         super();
@@ -26,7 +25,7 @@ class SearchMarkets extends Component {
         })
         .then(response => response.json())
         .then(json => {
-            this.props.setMarkets(json.result)
+            this.props.setMarkets(json.result); 
         });
     }
 

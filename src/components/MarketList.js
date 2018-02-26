@@ -1,18 +1,24 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+import MarketItem from './MarketItem';
+import {Link} from 'react-router-dom';
 
 class MarketList extends Component {
     render() {
         console.log('this.props', this.props);
-
         return(
             <div>
                 {
+                    this.props.favoriteMarkets.length > 0 ?
+                        <h4><Link className="link" to='/favorites'>Favorites </Link></h4>
+                    :
+                    <div></div>
+                }
+
+                {
                     this.props.markets.map((market, index) => {
                         return (
-                            <div key={index}>
-                                <h4>{market.MarketName}</h4>
-                            </div>
+                            <MarketItem key={index} market={market} favoriteButton = {true}/>
                         )
                     })
                 }
