@@ -25,7 +25,7 @@ class SearchMarkets extends Component {
         })
         .then(response => response.json())
         .then(json => {
-            this.props.setMarkets(json.result); 
+            this.props.setMarkets(json.result.slice(0, 10)); 
         });
     }
 
